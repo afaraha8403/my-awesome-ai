@@ -46,7 +46,7 @@ npx my-awesome-ai --all -y
 npx my-awesome-ai --skills cloakbrowser-fallback,documentation-writer -y
 
 # Rules only
-npx my-awesome-ai --rules production-stability,testing,comments -y
+npx my-awesome-ai --rules changelog,testing,comments -y
 
 # Global skills + project rules
 npx my-awesome-ai --skills all --rules changelog,testing -g -y
@@ -76,13 +76,9 @@ Rules are `.mdc` files for Cursor **Rules**. Review `description` and globs befo
 
 | Rule | Typical use |
 | --- | --- |
-| `admin-design-system` | Admin UI design system |
 | `changelog` | Changelog maintenance |
 | `cloudflare-workers` | Cloudflare Workers patterns |
 | `comments` | Comments and JSDoc standards |
-| `mcp-registry` | MCP registry conventions |
-| `mcp-testing` | MCP testing |
-| `production-stability` | Production safety and migrations |
 | `seo-ai-search` | SEO + AI-search implementation |
 | `testing` | Testing philosophy |
 
