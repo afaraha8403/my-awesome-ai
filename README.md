@@ -67,8 +67,11 @@ Rules are copied to `.cursor/rules/` in the target project. Skills go to `.curso
 | `cloakbrowser-fallback` | Stealth Chromium when normal automation is blocked |
 | `deep-deliberation` | Multi-stage problem analysis with red-team debates |
 | `documentation-writer` | Research-first technical documentation workflow |
+| `everything-seo` | Comprehensive SEO playbook: technical audits, semantic search, digital PR, CRO, Bing vs Google, AI content automation |
 | `marketing-psychology` | Psychology for product and marketing copy (customized) |
+| `nlm-skill` | NotebookLM CLI (`nlm`) and MCP server expert — manage notebooks, sources, generate podcasts, reports, and research |
 | `seo-audit` | SEO audit workflow (customized) |
+| `startup-marketing-brain` | Startup marketing advisor: bootstrapping, distribution, AI automation, monetization, go-to-market strategy |
 
 ## Rules
 
