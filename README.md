@@ -65,7 +65,8 @@ Rules are copied to `.cursor/rules/` in the target project. Skills go to `.curso
 | Skill | Summary |
 | --- | --- |
 | `cloakbrowser-fallback` | Stealth Chromium when normal automation is blocked |
-| `deep-deliberation` | Multi-stage problem analysis with red-team debates |
+| `deep-deliberation` | Forward-looking design: Tree-of-Thought + red-team debates to choose an approach before building |
+| `dissect` | Backward-looking audit: evidence-driven dissection of an existing service, plan, or codebase into a minimal-build plan |
 | `documentation-writer` | Research-first technical documentation workflow |
 | `everything-seo` | Comprehensive SEO playbook: technical audits, semantic search, digital PR, CRO, Bing vs Google, AI content automation |
 | `marketing-psychology` | Psychology for product and marketing copy (customized) |
@@ -79,6 +80,7 @@ Rules are `.mdc` files for Cursor **Rules**. Review `description` and globs befo
 
 | Rule | Typical use |
 | --- | --- |
+| `global` | Meta-principle, communication, simplicity, and repo hygiene |
 | `changelog` | Changelog maintenance |
 | `cloudflare-workers` | Cloudflare Workers patterns |
 | `comments` | Comments and JSDoc standards |

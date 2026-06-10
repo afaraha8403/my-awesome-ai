@@ -8,6 +8,26 @@ description: >-
   or asks to deeply explore / stress-test / red-team a problem, feature idea,
   architecture choice, or hard decision before committing to an approach.
 disable-model-invocation: true
+version: "1.2.0"
+author: "Ali Farahat"
+tags: ["deep-deliberation", "orchestration", "red-team", "decision-making"]
+when_to_use: |
+  USE WHEN (forward-looking, "what should we build?"):
+  - User explicitly invokes deep-deliberation or asks to "deep think" a problem.
+  - A high-stakes decision is on the table and a wrong approach is expensive to reverse
+    (architecture choice, data model, framework/vendor selection, migration strategy).
+  - The solution space is genuinely open: multiple plausible approaches exist and the
+    tradeoffs are non-obvious.
+  - The user wants an idea, feature, or plan stress-tested / red-teamed before committing.
+  - Ambiguity or disagreement needs to be surfaced and resolved with grounded evidence.
+
+  DO NOT USE WHEN:
+  - The task is trivial, mechanical, or has one obvious correct answer (just do it).
+  - Speed matters more than rigor (this pipeline is deliberately heavy: up to 10 subagents
+    + 3 checkpoints).
+  - The goal is to AUDIT or OPTIMIZE an entity that ALREADY EXISTS (a shipped service,
+    written plan, or codebase area). For that, use the companion `dissect` skill instead —
+    deliberation generates and chooses; dissect interrogates ground truth and prunes.
 ---
 
 # Deep Deliberation
@@ -72,6 +92,12 @@ Progress:
 
 Done by the main agent directly (no subagents).
 
+0. **Ground before branching (ground truth beats intent).** If the problem touches
+   existing code, data, or a written plan, do a quick read of the real artifacts
+   first — actual schema, the function bodies, what the plan says vs what ships.
+   Branches that ignore ground truth waste a checkpoint. If the system being changed
+   already exists and the real question is "what is actually here and what should
+   change?", stop and run the `dissect` skill instead of generating branches.
 1. **Restate the problem** in one or two sentences. Surface assumptions and any
    ambiguity. If the problem is unclear, ask before generating branches.
 2. **Generate 3–5 distinct branches** (meaningfully different approaches, not
@@ -251,4 +277,11 @@ Orchestrator pushback: [self-challenge]
   rather than forcing the full pipeline.
 - Keep each subagent prompt self-contained: subagents do not see the user's
   messages or prior stages unless you include that context in the prompt.
+- **Companion skill — `dissect`.** Deep-deliberation is generative: it explores a
+  solution space and chooses an approach for something not yet built. When the target
+  already exists (a shipped service, a written plan, a codebase area) and the goal is
+  to interrogate it against ground truth and arrive at the minimal-build change, use
+  `dissect`. The two skills share DNA — adversarial red-team subagents, human
+  checkpoints, evidence over intent — but point in opposite directions: deliberation
+  looks forward (design), dissect looks backward (audit).
 ```
